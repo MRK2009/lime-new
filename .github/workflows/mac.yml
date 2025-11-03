@@ -4,11 +4,11 @@ on:
   workflow_call:
 
 env:
-  HAXE_VERSION: 4.3.6
+  HAXE_VERSION: 4.3.7
 
 jobs:
   mac:
-    runs-on: macos-15
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         run: echo "HAXEPATH=$HAXE_STD_PATH/.." >> $GITHUB_ENV
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MobilePorting/hxcpp --quiet
+          haxelib git hxcpp https://github.com/PsychExtendedThings/hxcpp --quiet
           haxelib install format --quiet
           haxelib install hxp
       - name: Enable HXCPP compile cache
